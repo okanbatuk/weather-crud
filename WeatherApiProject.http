@@ -1,0 +1,92 @@
+@WeatherApi_Host_Address=http://localhost:5000
+
+### GET: Tüm hava durumu tahminlerini getir
+GET {{WeatherApi_Host_Address}}/weatherforecast
+Accept: application/json
+
+###
+
+### GET: Belirli bir tarihi getir (örnek tarih: 2025-05-21)
+GET {{WeatherApi_Host_Address}}/weatherforecast/bydate/2025-05-21
+Accept: application/json
+
+###
+
+### POST 1: Güneşli bir gün
+POST http://localhost:5000/weatherforecast
+Content-Type: application/json
+
+{
+  "date": "2025-05-21",
+  "temperatureC": 24,
+  "summary": "Sunny"
+}
+
+###
+
+### POST 2: Yağmurlu bir gün
+POST http://localhost:5000/weatherforecast
+Content-Type: application/json
+
+{
+  "date": "2025-05-22",
+  "temperatureC": 16,
+  "summary": "Rainy"
+}
+
+###
+
+### POST 3: Kısmen bulutlu
+POST http://localhost:5000/weatherforecast
+Content-Type: application/json
+
+{
+  "date": "2025-05-23",
+  "temperatureC": 19,
+  "summary": "Partly Cloudy"
+}
+
+###
+
+### POST 4: Soğuk ve karlı
+POST http://localhost:5000/weatherforecast
+Content-Type: application/json
+
+{
+  "date": "2025-05-24",
+  "temperatureC": -2,
+  "summary": "Snowy"
+}
+
+###
+
+### POST 5: Sıcak ve nemli
+POST http://localhost:5000/weatherforecast
+Content-Type: application/json
+
+{
+  "date": "2025-05-25",
+  "temperatureC": 30,
+  "summary": "Humid"
+}
+
+
+###
+
+### PUT: Belirli bir tarihi güncelle (aynı tarih olmalı)
+PUT {{WeatherApi_Host_Address}}/weatherforecast/bydate/2025-05-21
+Content-Type: application/json
+
+{
+  "date": "2025-05-21",
+  "temperatureC": 28,
+  "summary": "Hot"
+}
+
+###
+
+### DELETE: Belirli bir tarihi sil
+DELETE {{WeatherApi_Host_Address}}/weatherforecast/bydate/2025-05-21
+
+### DELETE: Tum verileri sil
+DELETE  {{WeatherApi_Host_Address}}/weatherforecast/all
