@@ -1,4 +1,7 @@
 using WeatherApiProject.Models;
+
+namespace WeatherApiProject.Helpers;
+
 public static class ApiResponseHelper
 {
   public static ApiResponse<T> Success<T>(T data, string message = "Success")

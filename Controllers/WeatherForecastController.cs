@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using WeatherApiProject.Services;
 using WeatherApiProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using WeatherApiProject.Helpers;
 
 namespace WeatherApiProject.Controllers;
 
@@ -10,6 +12,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
 {
   private readonly WeatherService _service = service;
 
+  [Authorize(Roles = "User, Admin")]
   [HttpGet]
   public async Task<IActionResult> GetAll()
   {
@@ -18,6 +21,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
     return Ok(ApiResponseHelper.Success(data));
   }
 
+  [Authorize(Roles = "User, Admin")]
   [HttpGet("bydate/{date}")]
   public async Task<IActionResult> GetByDate(DateOnly date)
   {
@@ -25,6 +29,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
     return data is not null ? Ok(ApiResponseHelper.Success(data)) : NotFound(ApiResponseHelper.Fail("Data for date not found."));
   }
 
+  [Authorize(Roles = "Admin")]
   [HttpPost]
   public async Task<IActionResult> Add(WeatherForecast forecast)
   {
@@ -32,6 +37,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
     return added ? CreatedAtAction(nameof(GetByDate), new { date = forecast.Date }, forecast) : Conflict(ApiResponseHelper.Fail("Data for date already exists."));
   }
 
+  [Authorize(Roles = "Admin")]
   [HttpPut("bydate/{date}")]
   public async Task<IActionResult> Update(DateOnly date, WeatherForecast forecast)
   {
@@ -40,6 +46,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
     return updated ? Ok() : NotFound(ApiResponseHelper.Fail("Data for date not found."));
   }
 
+  [Authorize(Roles = "Admin")]
   [HttpDelete("bydate/{date}")]
   public async Task<IActionResult> Delete(DateOnly date)
   {
@@ -47,6 +54,7 @@ public class WeatherForecastController(WeatherService service) : ControllerBase
     return deleted ? NoContent() : NotFound(ApiResponseHelper.Fail("Data for date not found."));
   }
 
+  [Authorize(Roles = "Admin")]
   [HttpDelete("all")]
   public async Task<IActionResult> DeleteAll()
   {

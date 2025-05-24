@@ -1,7 +1,17 @@
 @WeatherApi_Host_Address=http://localhost:5000
 
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "Username": "john",
+  "Password": "1234",
+}
+
+
 ### GET: Tüm hava durumu tahminlerini getir
 GET {{WeatherApi_Host_Address}}/weatherforecast
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiam9obiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzQ4MTE4NDMyLCJpc3MiOiJXZWF0aGVyQXBpIiwiYXVkIjoiV2VhdGhlckFwaUNsaWVudCJ9.Y5bo6VfmXb6RH0bqdV_LFxBXAePNnpqeUjcSuIdLRU8
 Accept: application/json
 
 ###
@@ -90,3 +100,4 @@ DELETE {{WeatherApi_Host_Address}}/weatherforecast/bydate/2025-05-21
 
 ### DELETE: Tum verileri sil
 DELETE  {{WeatherApi_Host_Address}}/weatherforecast/all
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiam9obiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzQ4MTE4NDMyLCJpc3MiOiJXZWF0aGVyQXBpIiwiYXVkIjoiV2VhdGhlckFwaUNsaWVudCJ9.Y5bo6VfmXb6RH0bqdV_LFxBXAePNnpqeUjcSuIdLRU8
