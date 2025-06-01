@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WeatherApiProject.Helpers;
-
+using WeatherApiProject.Services.Users;
+using WeatherApiProject.Services.Weathers;
+using WeatherApiProject.Services.Auth;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,15 +18,26 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(("Data Source=weather.db")));
 
-builder.Services.AddScoped<WeatherService>();
-
 // Add config
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
+// Add Auth service
+builder.Services.AddScoped<IAuthServices, AuthServices>();
+
+// Add Weather service
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+
+// Add User Service
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Add token service
 builder.Services.AddScoped<TokenService>();
@@ -50,8 +64,6 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key)
     };
 });
-
-
 
 var app = builder.Build();
 

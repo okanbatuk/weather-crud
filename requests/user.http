@@ -1,0 +1,33 @@
+@WeatherApi_Host_Address=http://localhost:5000
+
+##
+GET {{WeatherApi_Host_Address}}/user
+Accept: application/json
+# Authorization: Bearer {{
+
+###
+
+##
+GET {{WeatherApi_Host_Address}}/user/3
+Accept: application/json
+# Authorization: Bearer {{token}}
+
+###
+
+PUT {{WeatherApi_Host_Address}}/user?id=3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiamFuZV9kb2UiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzQ4ODAzMTY2LCJpc3MiOiJXZWF0aGVyQXBpIiwiYXVkIjoiV2VhdGhlckFwaUNsaWVudCJ9.jrf2nV19K9yudryAwR_0jl5zpyMzupFKnpx21OrILMo
+
+{
+  "Password": "johndoe1",
+  "FirstName": "JOHN",
+  "LastName": "DOE",
+  "Email": "john_updated@example.com",
+  "Role": "Admin"
+}
+
+###
+
+
+DELETE {{WeatherApi_Host_Address}}/user?id=2
+# Authorization: Bearer {{token}}

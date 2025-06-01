@@ -1,31 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
-using WeatherApiProject.Models;
 using WeatherApiProject.Services;
 using WeatherApiProject.Helpers;
+using WeatherApiProject.DTOs;
+using WeatherApiProject.Services.Auth;
 
 namespace WeatherApiProject.Controllers;
 
 [ApiController]
 [Route("auth")]
-public class AuthController(TokenService tokenService) : ControllerBase
+public class AuthController(IAuthServices authService, TokenService tokenService) : ControllerBase
 {
-  private static readonly List<User> _users =
-    [
-        new User { Id = 1, Username = "john", Password = "1234",Role= "Admin" },
-        new User { Id = 2, Username = "jane", Password = "1234",Role= "User" }
-    ];
-
   [HttpPost("login")]
-  public IActionResult Login([FromBody] User credentials)
+  public async Task<IActionResult> Login([FromBody] LoginUserDto credentials)
   {
-    var user = _users.FirstOrDefault(u =>
-        u.Username == credentials.Username &&
-        u.Password == credentials.Password);
+    var user = await authService.Login(credentials);
 
     if (user == null)
       return Unauthorized(ApiResponseHelper.Fail("Invalid credentials."));
 
     var token = tokenService.GenerateToken(user);
     return Ok(ApiResponseHelper.Success(token, "Login successful."));
+  }
+
+  [HttpPost("register")]
+  public async Task<IActionResult> Register([FromBody] RegisterUserDto credentials)
+  {
+    var registered = await authService.Register(credentials);
+    return registered ? Ok(ApiResponseHelper.Success("Registration successful.")) : BadRequest(ApiResponseHelper.Fail("Registration failed."));
   }
 }

@@ -1,0 +1,31 @@
+@WeatherApi_Host_Address=http://localhost:5000
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "Username": "john_doe",
+  "Password": "securePass123"
+}
+
+###
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "Username": "jane_doe",
+  "Password": "securePass123"
+}
+
+###
+POST {{WeatherApi_Host_Address}}/auth/register
+Content-Type: application/json
+
+{
+  "username": "jane_doe",
+  "password": "securePass123",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane.doe@example.com"
+}

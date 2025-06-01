@@ -18,7 +18,7 @@ public class TokenService(IOptions<JwtSettings> settings)
     {
             new(ClaimTypes.Name, user.Username),
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new(ClaimTypes.Role, user.Role)
+            new(ClaimTypes.Role, user.Role.ToString())
         };
 
     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.Key));
