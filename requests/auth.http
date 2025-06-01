@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
   "Username": "john_doe",
-  "Password": "securePass123"
+  "Password": "johndoe1"
 }
 
 ###

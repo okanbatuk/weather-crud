@@ -3,14 +3,12 @@
 ##
 GET {{WeatherApi_Host_Address}}/user
 Accept: application/json
-# Authorization: Bearer {{
 
 ###
 
 ##
 GET {{WeatherApi_Host_Address}}/user/3
 Accept: application/json
-# Authorization: Bearer {{token}}
 
 ###
 
@@ -22,8 +20,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
   "Password": "johndoe1",
   "FirstName": "JOHN",
   "LastName": "DOE",
-  "Email": "john_updated@example.com",
-  "Role": "Admin"
+  "Email": "john_updated@example.com"
 }
 
 ###

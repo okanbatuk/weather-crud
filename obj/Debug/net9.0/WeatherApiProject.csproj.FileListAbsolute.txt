@@ -156,3 +156,6 @@
 /run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/obj/Debug/net9.0/WeatherApiProject.pdb
 /run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/obj/Debug/net9.0/WeatherApiProject.genruntimeconfig.cache
 /run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/obj/Debug/net9.0/ref/WeatherApiProject.dll
+/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
+/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
