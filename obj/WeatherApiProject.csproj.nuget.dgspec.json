@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/myrn/Desktop/Projects/c#/WeatherApiProject/WeatherApiProject.csproj": {}
+    "/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/WeatherApiProject.csproj": {}
   },
   "projects": {
-    "/home/myrn/Desktop/Projects/c#/WeatherApiProject/WeatherApiProject.csproj": {
+    "/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/WeatherApiProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/myrn/Desktop/Projects/c#/WeatherApiProject/WeatherApiProject.csproj",
+        "projectUniqueName": "/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/WeatherApiProject.csproj",
         "projectName": "WeatherApiProject",
-        "projectPath": "/home/myrn/Desktop/Projects/c#/WeatherApiProject/WeatherApiProject.csproj",
+        "projectPath": "/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/WeatherApiProject.csproj",
         "packagesPath": "/home/myrn/.nuget/packages/",
-        "outputPath": "/home/myrn/Desktop/Projects/c#/WeatherApiProject/obj/",
+        "outputPath": "/run/media/myrn/LocalDisk/Projects/c#/WeatherApiProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/myrn/.nuget/NuGet/NuGet.Config"
